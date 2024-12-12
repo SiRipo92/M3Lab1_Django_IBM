@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from firstapp import views  # Import the views module from firstapp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('firstapp/', include('firstapp.urls')),
-    path('', include('firstapp.urls')),  # Add this line to serve firstapp/index as the root
-
+    path('firstapp/', include('firstapp.urls')),  # Include firstapp.urls
+    path('', views.index, name='index'),  # Add a root URL pattern
 ]
